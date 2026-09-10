@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <defs>
+    <linearGradient id="engBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E1828"/>
+      <stop offset="60%" stop-color="#15243B"/>
+      <stop offset="100%" stop-color="#0A121F"/>
+    </linearGradient>
+    <linearGradient id="engGold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F5B91C"/>
+      <stop offset="100%" stop-color="#FFD666"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#203350" stroke-width="1" stroke-opacity="0.4"/>
+    </pattern>
+    <linearGradient id="silGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#243854"/>
+      <stop offset="100%" stop-color="#142133"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background with technical grid -->
+  <rect width="800" height="1000" fill="url(#engBg)"/>
+  <rect width="800" height="1000" fill="url(#grid)"/>
+
+  <!-- Technical Circuit Accent Lines -->
+  <g stroke="#F5B91C" stroke-width="1.5" stroke-opacity="0.3" fill="none">
+    <path d="M 60 80 L 140 80 L 180 120 L 300 120"/>
+    <circle cx="60" cy="80" r="3" fill="#F5B91C"/>
+    <circle cx="300" cy="120" r="3" fill="#F5B91C"/>
+    <path d="M 740 80 L 660 80 L 620 120 L 500 120"/>
+    <circle cx="740" cy="80" r="3" fill="#F5B91C"/>
+    <circle cx="500" cy="120" r="3" fill="#F5B91C"/>
+    <path d="M 100 900 L 200 900 L 240 860 L 400 860"/>
+    <path d="M 700 900 L 600 900 L 560 860 L 400 860"/>
+  </g>
+
+  <!-- Central Frame -->
+  <rect x="50" y="50" width="700" height="900" rx="16" fill="none" stroke="#253A5A" stroke-width="2"/>
+  <rect x="58" y="58" width="684" height="884" rx="10" fill="none" stroke="#F5B91C" stroke-width="1" stroke-dasharray="8 6" stroke-opacity="0.35"/>
+
+  <!-- Corner Brackets -->
+  <path d="M 50 100 L 50 50 L 100 50" fill="none" stroke="#F5B91C" stroke-width="4"/>
+  <path d="M 750 100 L 750 50 L 700 50" fill="none" stroke="#F5B91C" stroke-width="4"/>
+  <path d="M 50 900 L 50 950 L 100 950" fill="none" stroke="#F5B91C" stroke-width="4"/>
+  <path d="M 750 900 L 750 950 L 700 950" fill="none" stroke="#F5B91C" stroke-width="4"/>
+
+  <!-- Engineer Silhouette Graphic -->
+  <g transform="translate(400, 440)">
+    <!-- Aura glow -->
+    <circle cx="0" cy="0" r="170" fill="#F5B91C" fill-opacity="0.04"/>
+    <circle cx="0" cy="0" r="130" fill="#00C2FF" fill-opacity="0.03"/>
+
+    <!-- Hardhat / Helmet -->
+    <path d="M -85 -110 C -85 -180 85 -180 85 -110 C 95 -105 105 -100 95 -85 L -95 -85 C -105 -100 -95 -105 -85 -110 Z" fill="#F5B91C"/>
+    <path d="M -20 -180 L 20 -180 L 15 -100 L -15 -100 Z" fill="#DFA30D"/>
+    <rect x="-110" y="-85" width="220" height="14" rx="7" fill="#F5B91C"/>
+    <!-- Head -->
+    <ellipse cx="0" cy="-30" rx="65" ry="70" fill="url(#silGrad)"/>
+    <!-- Safety collar & shoulders -->
+    <path d="M -150 160 C -140 80 -80 50 0 50 C 80 50 140 80 150 160 Z" fill="url(#silGrad)"/>
+    <!-- High-vis harness vest stripes -->
+    <path d="M -50 55 L -75 160 M 50 55 L 75 160" stroke="#F5B91C" stroke-width="12" stroke-linecap="round"/>
+    <path d="M -110 130 L 110 130" stroke="#F5B91C" stroke-width="10"/>
+  </g>
+
+  <!-- Text & Placeholder Label -->
+  <g text-anchor="middle" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif">
+    <!-- Badge -->
+    <rect x="250" y="670" width="300" height="42" rx="8" fill="#15243B" stroke="#F5B91C" stroke-width="1.5"/>
+    <text x="400" y="697" fill="#F5B91C" font-size="16" font-weight="700" letter-spacing="3">YOUR ENGINEER PHOTO</text>
+
+    <!-- Subtitle -->
+    <text x="400" y="750" fill="#FFFFFF" font-size="22" font-weight="600">Founder &amp; Electrical Engineer</text>
+    <text x="400" y="785" fill="#8FA4C4" font-size="15">Replace with real high-resolution portrait</text>
+    <text x="400" y="810" fill="#69778B" font-size="13">Recommended ratio: 4:5 (e.g. 800 × 1000 px)</text>
+
+    <!-- Technical Specs Stamp -->
+    <g transform="translate(400, 875)">
+      <rect x="-160" y="-18" width="320" height="36" rx="6" fill="#0A121F" stroke="#253A5A" stroke-width="1"/>
+      <circle cx="-135" cy="0" r="5" fill="#22C55E"/>
+      <text x="0" y="5" fill="#94A3B8" font-size="12" font-family="monospace">CERTIFIED • LICENSED • MSME</text>
+    </g>
+  </g>
+</svg>

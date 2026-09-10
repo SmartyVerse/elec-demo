@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="p2Bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E1726"/>
+      <stop offset="100%" stop-color="#16253C"/>
+    </linearGradient>
+    <pattern id="pGrid2" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#233B5D" stroke-width="0.8" stroke-opacity="0.4"/>
+    </pattern>
+  </defs>
+  <rect width="600" height="400" fill="url(#p2Bg)"/>
+  <rect width="600" height="400" fill="url(#pGrid2)"/>
+  
+  <!-- Commercial Floor Plan & Distribution Grid -->
+  <g stroke="#2B466E" stroke-width="1.5" fill="none">
+    <rect x="80" y="80" width="440" height="230" rx="4"/>
+    <line x1="220" y1="80" x2="220" y2="310"/>
+    <line x1="360" y1="80" x2="360" y2="310"/>
+    <line x1="80" y1="195" x2="520" y2="195"/>
+  </g>
+
+  <!-- Commercial Three-Phase Busway & Lighting Grids -->
+  <g stroke="#00C2FF" stroke-width="2" fill="none">
+    <line x1="100" y1="135" x2="500" y2="135" stroke-dasharray="8 4"/>
+    <line x1="100" y1="250" x2="500" y2="250" stroke-dasharray="8 4"/>
+  </g>
+
+  <!-- Luminaire Fixtures -->
+  <g fill="#F5B91C">
+    <!-- Row 1 -->
+    <rect x="130" y="125" width="40" height="20" rx="2" fill="#15243B" stroke="#F5B91C" stroke-width="1.5"/>
+    <rect x="270" y="125" width="40" height="20" rx="2" fill="#15243B" stroke="#F5B91C" stroke-width="1.5"/>
+    <rect x="410" y="125" width="40" height="20" rx="2" fill="#15243B" stroke="#F5B91C" stroke-width="1.5"/>
+    <!-- Row 2 -->
+    <rect x="130" y="240" width="40" height="20" rx="2" fill="#15243B" stroke="#F5B91C" stroke-width="1.5"/>
+    <rect x="270" y="240" width="40" height="20" rx="2" fill="#15243B" stroke="#F5B91C" stroke-width="1.5"/>
+    <rect x="410" y="240" width="40" height="20" rx="2" fill="#15243B" stroke="#F5B91C" stroke-width="1.5"/>
+  </g>
+
+  <!-- 3-Phase Main Switchboard -->
+  <g transform="translate(80, 110)">
+    <rect x="-25" y="0" width="22" height="60" rx="2" fill="#14243B" stroke="#F5B91C" stroke-width="2"/>
+    <line x1="-20" y1="15" x2="-8" y2="15" stroke="#EF4444" stroke-width="2"/>
+    <line x1="-20" y1="30" x2="-8" y2="30" stroke="#F5B91C" stroke-width="2"/>
+    <line x1="-20" y1="45" x2="-8" y2="45" stroke="#3B82F6" stroke-width="2"/>
+  </g>
+
+  <!-- Overlay Watermark Badge -->
+  <g transform="translate(30, 30)">
+    <rect width="180" height="26" rx="13" fill="#0A121F" stroke="#F5B91C" stroke-width="1" stroke-opacity="0.8"/>
+    <circle cx="15" cy="13" r="4" fill="#F5B91C"/>
+    <text x="28" y="17" fill="#F5B91C" font-size="10" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" letter-spacing="1">SAMPLE PROJECT</text>
+  </g>
+
+  <!-- Bottom Details Bar -->
+  <rect x="0" y="340" width="600" height="60" fill="#0A121F" fill-opacity="0.9"/>
+  <line x1="0" y1="340" x2="600" y2="340" stroke="#253C5E" stroke-width="1"/>
+  <text x="30" y="366" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="700">Commercial Electrical Fit-Out</text>
+  <text x="30" y="384" fill="#8FA4C4" font-family="'Plus Jakarta Sans', sans-serif" font-size="11">3-Phase load balancing, main switchgear &amp; energy-efficient lighting</text>
+  <text x="570" y="375" fill="#F5B91C" font-family="monospace" font-size="12" text-anchor="end">COMMERCIAL</text>
+</svg>

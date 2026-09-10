@@ -1,0 +1,191 @@
+/**
+ * ============================================================================
+ * 3D SERVICE CARD INTERACTION & SPECULAR HIGHLIGHT
+ * ============================================================================
+ * Features:
+ * - Dynamic cursor-tracked tilt (rotateX, rotateY) & slight lift (translateY, translateZ)
+ * - Multi-layer depth parallax (icon, title, action button)
+ * - Moving specular light reflection tracking cursor position
+ * - Refined rainbow/spectrum conic-gradient border on hover
+ * - Soft colorful ambient halo glow
+ * - Touch & prefers-reduced-motion safe fallbacks
+ * ============================================================================
+ */
+
+.card-3d-wrap {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  height: 100%;
+}
+
+.service-card-3d {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 32px 28px;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--ty, 0px)) translateZ(var(--tz, 0px));
+  transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.4, 1), box-shadow 0.3s ease;
+  box-shadow: 0 4px 20px -2px rgba(13, 23, 38, 0.06), 0 2px 6px -1px rgba(13, 23, 38, 0.04);
+  will-change: transform;
+  border: 1px solid rgba(13, 23, 38, 0.08);
+  isolation: isolate;
+  overflow: visible;
+}
+
+/* Subtle rainbow spectrum conic-gradient border layer */
+.service-card-3d::before {
+  content: "";
+  position: absolute;
+  inset: -1.5px;
+  border-radius: 17.5px;
+  background: conic-gradient(
+    from var(--border-angle, 0deg),
+    #F5B91C 0%,
+    #FF7A00 14%,
+    #FF1493 28%,
+    #7B2CBF 42%,
+    #0070F3 56%,
+    #00D2FF 70%,
+    #10B981 84%,
+    #F5B91C 100%
+  );
+  opacity: 0;
+  z-index: -2;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+/* Soft colorful glow behind card */
+.service-card-3d::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 20px;
+  background: conic-gradient(
+    from var(--border-angle, 0deg),
+    rgba(245, 185, 28, 0.5) 0%,
+    rgba(255, 122, 0, 0.4) 14%,
+    rgba(255, 20, 147, 0.35) 28%,
+    rgba(123, 44, 191, 0.35) 42%,
+    rgba(0, 112, 243, 0.4) 56%,
+    rgba(0, 210, 255, 0.4) 70%,
+    rgba(16, 185, 129, 0.4) 84%,
+    rgba(245, 185, 28, 0.5) 100%
+  );
+  filter: blur(12px);
+  opacity: 0;
+  z-index: -3;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+/* On hover / active states */
+.card-3d-wrap:hover .service-card-3d::before {
+  opacity: 1;
+}
+
+.card-3d-wrap:hover .service-card-3d::after {
+  opacity: 0.65;
+}
+
+.card-3d-wrap:hover .service-card-3d {
+  box-shadow: 
+    0 24px 38px -12px rgba(13, 23, 38, 0.12),
+    0 12px 18px -6px rgba(13, 23, 38, 0.08);
+}
+
+/* Specular light sheen tracking cursor */
+.card-specular-light {
+  position: absolute;
+  inset: 0;
+  border-radius: 15px;
+  background: radial-gradient(
+    circle 260px at var(--mx, 50%) var(--my, 50%),
+    rgba(245, 185, 28, 0.14) 0%,
+    rgba(255, 255, 255, 0.5) 30%,
+    transparent 75%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  z-index: 1;
+}
+
+.card-3d-wrap:hover .card-specular-light {
+  opacity: 1;
+}
+
+/* 3D Parallax Depth for internal elements */
+.card-3d-icon {
+  transform: translateZ(32px);
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.4, 1);
+  will-change: transform;
+}
+
+.card-3d-num {
+  transform: translateZ(20px);
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.4, 1);
+}
+
+.card-3d-content {
+  transform: translateZ(16px);
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.4, 1);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-3d-action {
+  transform: translateZ(26px);
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.4, 1);
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+/* Mobile / Touch Devices: Disable mouse tilt, use smooth subtle lift */
+@media (hover: none) or (pointer: coarse) {
+  .service-card-3d {
+    transform: none !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .card-3d-icon,
+  .card-3d-num,
+  .card-3d-content,
+  .card-3d-action {
+    transform: none !important;
+  }
+  .service-card-3d:active {
+    transform: translateY(-4px) scale(0.99) !important;
+    border-color: #F5B91C;
+    box-shadow: 0 12px 24px -6px rgba(245, 185, 28, 0.2);
+  }
+  .service-card-3d::before,
+  .service-card-3d::after,
+  .card-specular-light {
+    display: none;
+  }
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .service-card-3d {
+    transform: none !important;
+    transition: none !important;
+  }
+  .card-3d-icon,
+  .card-3d-num,
+  .card-3d-content,
+  .card-3d-action {
+    transform: none !important;
+    transition: none !important;
+  }
+  .service-card-3d::before,
+  .service-card-3d::after,
+  .card-specular-light {
+    display: none !important;
+  }
+}
